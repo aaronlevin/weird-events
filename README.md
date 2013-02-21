@@ -1,3 +1,5 @@
-# A REST API for Weird Canada Featured Events in Canada
+# A REST API for Weird Events in Canada
+
+Your guide to the Canadian underground (wrapped in JSON and delivered to your intraweb).
 
 `curl http://api.weirdcanada.com/events/api/featured_events`
