@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from featuredEvents.models.FeaturedEvent import FeaturedEvent
 
 
-class RestController():
+class RestController(object):
 
     MAX_NUMBER_EVENTS = 10
 

@@ -1,2 +1,4 @@
 *.pyc
+*~
+weird_events.egg-info
 weirdCanada/settings.py

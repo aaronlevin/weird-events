@@ -2,30 +2,19 @@
 from django.http import HttpResponse
 from featuredEvents.controllers.restController import RestController
 
-def getUpcomingEvents(request):
-    try:
-        controller = RestController()
-        return controller.getUpcomingEvents(request)
-    except Exception:
-        return HttpResponse(content='', content_type=None, status=500)
+# The "Controller" is not stateful, so let's just make a singleton.
+restController = RestController()
 
-def getUpcomingEventsByCity(request, city):
-    try:
-        controller = RestController()
-        return controller.getUpcomingEventsByCity(request, city)
-    except Exception:
-        return HttpResponse(content='', content_type=None, status=500)
+def makeRestView(controllerAction):
+    def restView(request):
+        try:
+            return controllerAction(request)
+        except Exception:
+            return HttpResponse(content='', content_type=None, status=500)
+    return restView
 
-def getEventsByDescription(request, searchString):
-    try:
-        controller = RestController()
-        return controller.getEventsByDescription(request, searchString)
-    except Exception:
-        return HttpResponse(content='', content_type=None, status=500)
 
-def getEventsByPresenter(request, searchString):
-    try:
-        controller = RestController()
-        return controller.getEventsByPresenter(request, searchString)
-    except Exception:
-        return HttpResponse(content='', content_type=None, status=500)
+getUpcomingEvents = makeRestView(restController.getUpcomingEvents)
+getUpcomingEventsByCity = makeRestView(restController.getUpcomingEventsByCity)
+getEventsByDescription = makeRestView(restController.getEventsByDescription)
+getEventsByPresenter = makeRestView(restController.getEventsByPresenter)
