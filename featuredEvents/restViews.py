@@ -6,9 +6,9 @@ from featuredEvents.controllers.restController import RestController
 restController = RestController()
 
 def makeRestView(controllerAction):
-    def restView(request):
+    def restView(request, **kwargs):
         try:
-            return controllerAction(request)
+            return controllerAction(request, **kwargs)
         except Exception:
             return HttpResponse(content='', content_type=None, status=500)
     return restView
