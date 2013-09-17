@@ -22,4 +22,7 @@ urlpatterns = patterns('',
 
     # REST API
     (r'^api/featured_events/', include('featuredEvents.restUrls')),
+
+    # S3 Upload Signer
+    (r'^api/s3_upload_signature/', include('s3UploadSignature.urls')),
 )

@@ -32,6 +32,14 @@ DATABASES = {
     }
 }
 
+
+# AWS settings to control the S3 upload thing:
+AWS_UPLOAD = {
+    "BUCKET_NAME": "",
+    "ACCESS_KEY_ID": "",
+    "SECRET_ACCESS_KEY": ""
+}
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
