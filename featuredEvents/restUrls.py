@@ -6,7 +6,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
     url(r'^$', "featuredEvents.restViews.getUpcomingEvents", name="getUpcomingEvents"),
-    url(r"^city/(?P<city>[a-zA-Z_-]+)/$",
+    url(r"^city/(?P<city>(.+))/$",
         "featuredEvents.restViews.getUpcomingEventsByCity", name="getUpcomingEventsByCity"),
     url(r"^search/(?P<searchString>[a-zA-Z0-9_-]+)/$",
         "featuredEvents.restViews.getEventsByDescription", name="getEventsByDescription"),
